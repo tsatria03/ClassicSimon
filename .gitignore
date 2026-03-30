@@ -1,0 +1,5 @@
+*.ini
+New File*.txt
+
+lib/
+releases/

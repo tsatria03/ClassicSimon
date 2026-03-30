@@ -1,0 +1,184 @@
+bool alt_is_down()
+{
+if(key_down(KEY_LALT) or key_down(KEY_RALT))
+{
+return true;
+}
+return false;
+}
+bool control_is_down()
+{
+if(key_down(KEY_LCTRL) or key_down(KEY_RCTRL))
+{
+return true;
+}
+return false;
+}
+bool shift_is_down()
+{
+if(key_down(KEY_LSHIFT) or key_down(KEY_RSHIFT))
+{
+return true;
+}
+return false;
+}
+string find_sound(string soundname)
+{
+string[] snd=find_files(soundname);
+if (snd.length()>0)
+{
+string[] a_path=soundname.split("/",true);
+string path=soundname.replace(a_path[a_path.length()-1],"",true);
+return path+snd[random(0,snd.length()-1)];
+}
+else
+return "";
+}
+void sort_naturally(array<string>& inout arr)
+{
+arr.sort(natural_number_sort);
+}
+
+int get_pressed_tone()
+{
+    if(key_pressed(KEY_LEFT)) return 1;
+    if(key_pressed(KEY_DOWN)) return 2;
+    if(key_pressed(KEY_UP)) return 3;
+    if(key_pressed(KEY_RIGHT)) return 4;
+    return 0;
+}
+string get_difficulty_name(int dif)
+{
+    if(dif == 1) return "easy";
+    if(dif == 2) return "medium";
+    if(dif == 3) return "hard";
+    return "unknown";
+}
+void load_simon_pack(string pack)
+{
+    if(loaded_pack == pack)
+        return;
+    loaded_pack = pack;
+    for(int i = 0; i < 4; i++)
+    {
+        string path = find_sound("sounds/simons/" + pack + "/" + string(i+1) + ".ogg");
+        if(path != "")
+            tone_sounds[i].load(path);
+        else
+            speak("Missing tone " + string(i+1));
+    }
+    string failpath = find_sound("sounds/simons/" + pack + "/fail.ogg");
+    if(failpath != "")
+        fail_sound.load(failpath);
+    else
+        speak("Missing fail sound");
+}
+void play_tone(int i)
+{
+    if(i < 1 || i > 4)
+        return;
+    tone_sounds[i-1].stop();
+    tone_sounds[i-1].play();
+}
+void play_fail()
+{
+stop_all_tones();
+    fail_sound.stop();
+    fail_sound.play();
+}
+void stop_fail()
+{
+    fail_sound.stop();
+}
+void stop_tone(int i)
+{
+    if(i < 1 || i > 4)
+        return;
+    tone_sounds[i-1].stop();
+}
+void stop_all_tones()
+{
+    for(int i = 1; i <= 4; i++)
+        stop_tone(i);
+}
+void apply_difficulty()
+{
+    if(difmod == 1) // Easy
+    {
+        play_delay = 500;
+        input_timeout = 2000;
+    }
+    else if(difmod == 2)
+    {
+        play_delay = 400;
+        input_timeout = 1500;
+    }
+    else if(difmod == 3)
+    {
+        play_delay = 300;
+        input_timeout = 1000;
+    }
+}
+void play_sequence()
+{
+    for(uint i = 0; i < sequence.length(); i++)
+    {
+        play_tone(sequence[i]);
+        wait(play_delay + 50);
+    }
+}
+void next_round()
+{
+    player_index = 0;
+    sequence.push_back(random(1,4));
+if(simspeech) speak("Round " + string(sequence.length()));
+    wait(500);
+    play_sequence();
+    input_timer.restart();
+    if(play_delay > 100)
+        play_delay -= 5*difmod;
+    if(input_timeout > 200)
+        input_timeout -= 5*difmod;
+}
+void learnsounds()
+{
+    load_simon_pack(simontype);
+speak("Learn tones. Arrow keys play tones. F plays fail. Escape to return.");
+    while(true)
+    {
+        wait(5);
+        if(key_pressed(KEY_ESCAPE))
+{
+mainmenu();
+        }
+if(key_pressed(KEY_LEFT))
+{
+if(simspeech) speak("left");
+stop_fail();
+play_tone(1);
+        }
+if(key_pressed(KEY_DOWN))
+{
+if(simspeech) speak("down");
+stop_fail();
+play_tone(2);
+        }
+if(key_pressed(KEY_UP))
+{
+if(simspeech) speak("up");
+stop_fail();
+play_tone(3);
+        }
+if(key_pressed(KEY_RIGHT))
+{
+if(simspeech) speak("right");
+stop_fail();
+play_tone(4);
+        }
+if(key_pressed(KEY_F))
+{
+if(simspeech) speak("F");
+play_fail();
+    }
+}
+}

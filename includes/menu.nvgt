@@ -1,0 +1,120 @@
+void mainmenu()
+{
+    while(true)
+    {
+        setupmenu();
+        m.add_item("Play", "play");
+        m.add_item("Exit", "exit");
+        m.intro_text = "Main menu. Choose an option.";
+        int res = m.run();
+        string main = m.get_item_id(res);
+        if(res == -1)
+        {
+            speak("Exiting");
+            m.fade_music();
+            exit();
+        }
+        if(main == "play")
+        {
+            packmenu();
+            continue;
+        }
+        if(main == "exit")
+        {
+            speak("Exiting");
+            m.fade_music();
+            exit();
+        }
+    }
+}
+void packmenu()
+{
+    while(true)
+    {
+        setupmenu();
+        string[] packs = find_directories("sounds/simons/*");
+        if(packs.length() == 0)
+        {
+            speak("No Simon packs found.");
+            return;
+        }
+        for(uint i = 0; i < packs.length(); i++)
+        {
+            m.add_item(packs[i], packs[i]);
+        }
+        m.add_item("Back", "back");
+        m.intro_text = "Choose a Simon pack.";
+        int res = m.run();
+        string packid = m.get_item_id(res);
+        if(res == -1)
+            return;
+        if(packid == "back")
+            return;
+        simontype = packid;
+        pack_options_menu();
+    }
+}
+void pack_options_menu()
+{
+    while(true)
+    {
+        setupmenu();
+        m.add_item("Start game", "start");
+        m.add_item("Learn tones", "learn");
+        m.add_item("Back", "back");
+        m.intro_text = simontype + " loaded. What would you like to do?";
+        int res = m.run();
+        string gamid = m.get_item_id(res);
+        if(res == -1)
+            return;
+        if(gamid == "back")
+            return;
+        if(gamid == "start")
+        {
+modemenu();
+            continue;
+        }
+        if(gamid == "learn")
+        {
+            learnsounds();
+            continue;
+        }
+    }
+}
+void modemenu()
+{
+    while(true)
+    {
+        setupmenu();
+        m.add_item("easy", "dif1");
+        m.add_item("medium", "dif2");
+        m.add_item("hard", "dif3");
+        m.add_item("back", "back");
+        m.intro_text = "Choose a game difficulty.";
+        int res = m.run();
+        string difid = m.get_item_id(res);
+        if(res == -1 || difid == "back")
+        {
+            return;
+        }
+        if(difid == "dif1") difmod = 1;
+        if(difid == "dif2") difmod = 2;
+        if(difid == "dif3") difmod = 3;
+        setupmenu();
+        m.add_item("Yes", "auto");
+        m.add_item("No", "manual");
+        m.add_item("Back", "back");
+        m.intro_text = "Would you like to enable autopilot for this game?";
+        int ares = m.run(1, true, true);
+        string aid = m.get_item_id(ares);
+        if(ares == -1 || aid == "back")
+        {
+            continue;
+        }
+        if(aid == "manual")
+            autopilot = false;
+        if(aid == "auto")
+            autopilot = true;
+        play_game();
+    }
+}

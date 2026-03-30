@@ -1,0 +1,107 @@
+void game_loop()
+{
+    while(true)
+    {
+        wait(5);
+        if(key_pressed(KEY_ESCAPE))
+        {
+            mainmenu();
+            return;
+        }
+        if(autopilot)
+        {
+            for(uint i = 0; i < sequence.length(); i++)
+            {
+wait(play_delay + random(50, 150));
+                int correct = sequence[i];
+int base_fail = difmod * 5;
+int fail_chance = base_fail + (sequence.length() / 5);
+                if(random(0,100) < fail_chance)
+                {
+int wrong;
+do
+{
+    wrong = random(1,4);
+}
+while(wrong == correct);
+                    game_over();
+                    return;
+                }
+                play_tone(correct);
+            }
+            wait(500);
+            next_round();
+            continue;
+        }
+        int pressed = get_pressed_tone();
+        if(pressed == 0)
+        {
+            if(input_timer.elapsed >= input_timeout)
+            {
+                game_over();
+                return;
+            }
+            continue;
+        }
+        play_tone(pressed);
+        if(player_index < 0 || player_index >= int(sequence.length()))
+        {
+            game_over();
+            return;
+        }
+        if(pressed != sequence[player_index])
+        {
+            game_over();
+            return;
+        }
+        player_index++;
+        input_timer.restart();
+        if(player_index >= sequence.length())
+        {
+            wait(500);
+            next_round();
+        }
+    }
+}
+void game_over()
+{
+    play_fail();
+wait(500);
+int score = sequence.length() - 1;
+if(score < 0)
+    score = 0;
+string word = (score == 1 ? "sequence" : "sequences");
+speak("Oops, you failed after memorizing " + string(score) + " " + word + ". Press enter to try again, or escape to go back to the main menu.");
+    while(true)
+    {
+        wait(5);
+        if(key_pressed(KEY_RETURN) || key_pressed(KEY_SPACE))
+        {
+            return;
+        }
+        if(key_pressed(KEY_ESCAPE))
+        {
+            mainmenu();
+            return;
+        }
+    }
+}
+void start_game()
+{
+    sequence.resize(0);
+    player_index = 0;
+apply_difficulty();
+speak("Game started, difficulty " + get_difficulty_name(difmod));
+    wait(1000);
+    next_round();
+}
+void play_game()
+{
+    load_simon_pack(simontype);
+    while(true)
+    {
+wait(5);
+        start_game();
+        game_loop();
+    }
+}

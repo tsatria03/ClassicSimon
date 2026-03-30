@@ -1,0 +1,10 @@
+New in 1.0.
+Added an autopilot option in the main menu. You can have the game automaticly play for you, and let it fail at random.
+Added a basic score system to the game. You will here the total score you got upon failing a round.
+Updated the readme with clearer instructions on how to play the game.
+Fixed difficulty option scaling.
+Added difficulty options to the game. This controls how fast the game tones play, along with how rappidly it speeds up when playing, and failling.
+Updated the logo sound to be fadable when the enter key is pressed.
+Fixed a bunch of bugs with menus, and replaced the old system with a much more reliable one.
+Added a dynamic pack system to the game. You can now add any type of simon game to play.
+
