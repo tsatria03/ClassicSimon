@@ -93,7 +93,7 @@ void next_round()
 if(simspeech) speak("Round " + string(sequence.length()));
     wait(500);
     play_sequence();
-if(simspeech) speak("go");
+if(simspeech && !autopilot) speak("go");
     input_timer.restart();
     if(play_delay > 100)
         play_delay -= 5*difmod;
