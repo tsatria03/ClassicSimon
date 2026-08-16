@@ -6,7 +6,7 @@ void mainmenu()
         m.add_item("Play", "play");
         m.add_item("Settings", "settings");
         m.add_item("Exit", "exit");
-        m.intro_text = "Main menu. Choose an option.";
+        m.intro_text = "Main menu. Choose an option with your arrow keys, then press enter to activate one.";
         int res = m.run();
         string main = m.get_item_id(res);
         if(res == -1)
@@ -43,7 +43,7 @@ void settingsmenu()
         m.add_item("Play logo at startup, currently " + (logoplay ? "on" : "off"), "logo");
         m.add_item("Spoken hints, currently " + (simspeech ? "on" : "off"), "hints");
         m.add_item("Back", "back");
-        m.intro_text = "Settings menu. Choose an option.";
+        m.intro_text = "Settings menu.";
         int res = m.run(focus, true, true);
         string setid = m.get_item_id(res);
         if(res == -1 || setid == "back")
@@ -93,6 +93,7 @@ void pack_options_menu()
         setupmenu(true);
         m.add_item("Start game", "start");
         m.add_item("Learn tones", "learn");
+        m.add_item("View scores", "scores");
         m.add_item("Back", "back");
         m.intro_text = simontype + " loaded. What would you like to do?";
         int res = m.run();
@@ -112,6 +113,33 @@ m.fade_music();
             learnsounds();
             continue;
         }
+        if(gamid == "scores")
+        {
+            viewscores();
+            continue;
+        }
+    }
+}
+void viewscores()
+{
+    int focus = 0;
+    sc.load();
+    while(true)
+    {
+        setupmenu(true);
+        m.add_item(score_line("Easy", simontype, 1), "easy");
+        m.add_item(score_line("Medium", simontype, 2), "medium");
+        m.add_item(score_line("Hard", simontype, 3), "hard");
+        m.add_item("Back", "back");
+        m.intro_text = simontype + " scores.";
+        int res = m.run(focus, true, true);
+        string id = m.get_item_id(res);
+        if(res == -1 || id == "back")
+        {
+            speak("canceled");
+            return;
+        }
+        focus = res - 1;
     }
 }
 void modemenu()

@@ -1,4 +1,5 @@
 New in 1.0.
+Added a view scores option to each Simon's menu, where you can see your best score for easy, medium, and hard. Your best is remembered between sessions, and autopilot games do not count toward it.
 Added some menu music to the game. You can change the volume for them by pressing the page up and page down keys.
 Made it so all of your changed settings are now remembered between sessions.
 Improved autopilot mode. It no longer says go when a round begins, and when it slips up the game now says the computer failed instead of you failed.

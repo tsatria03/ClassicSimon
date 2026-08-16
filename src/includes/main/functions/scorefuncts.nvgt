@@ -1,0 +1,29 @@
+string best_key(string pack, int dif)
+{
+return "best_" + pack + "_" + string(dif);
+}
+bool record_score(string pack, int dif, int score)
+{
+sc.load();
+string key = best_key(pack, dif);
+bool had = sc.d.exists(key);
+int prev = had ? sc.read_int(key) : -1;
+if(score > prev)
+{
+if(!directory_exists(savePath))
+directory_create(savePath);
+sc.add(key, score);
+sc.save();
+return had;
+}
+return false;
+}
+string score_line(string label, string pack, int dif)
+{
+string key = best_key(pack, dif);
+if(!sc.d.exists(key))
+return label + ". No score recorded.";
+int best = sc.read_int(key);
+string word = (best == 1 ? "sequence" : "sequences");
+return label + ". Best score, " + string(best) + " " + word + ".";
+}

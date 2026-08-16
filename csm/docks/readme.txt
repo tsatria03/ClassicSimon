@@ -4,7 +4,7 @@ ClassicSimon is a simple audio memory game in the classic "Simon" style. The gam
 
 Getting started.
 
-When you open the game, a short logo plays. Press enter to fade it and skip ahead if you like. You will then land on the main menu, which has three options, Play, Settings, and Exit.
+When you open the game, a short logo plays. Press enter to skip it if you'd like. You will then land on the main menu, which has three options, Play, Settings, and Exit.
 
 Settings.
 
@@ -12,7 +12,7 @@ Choose Settings from the main menu to adjust a couple of options. Spoken hints, 
 
 Choosing a Simon.
 
-Choose Play to pick a Simon. The list is built from the sound packs you have installed, so whatever packs are present will show up here. You can add your own too, see "Adding your own Simons" below. Pick one to open its menu, where you can Start game or Learn tones.
+Choose Play to pick a Simon. The list is built from the sound packs you have installed, so whatever packs are present will show up here. You can add your own too, see "Adding your own Simons" below. Pick one to open its menu, where you can Start game, Learn tones, or View scores.
 
 Difficulty and autopilot.
 
@@ -25,6 +25,10 @@ Each of the four arrow keys is one of the four tones, left, down, up, and right.
 Learn tones.
 
 Not sure which arrow is which? Choose Learn tones from a Simon's menu. There you can press the arrow keys to hear each tone as many times as you like, and press F to hear the fail sound. Press escape to go back.
+
+Viewing your scores.
+
+Choose View scores from a Simon's menu to hear your best runs for that Simon. There is one line for each difficulty, easy, medium, and hard, and it tells you the most tones you have ever memorized in a single game at that level. If you have not played a difficulty yet, it will say no score recorded. Your best for each difficulty is saved and remembered between sessions, so you always have something to beat. Games played on autopilot do not count, since the computer is playing, not you. Press escape, or choose Back, to return.
 
 Adding your own Simons.
 
