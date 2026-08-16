@@ -28,6 +28,6 @@ The pack system is open, so any folder you drop into the game's sounds/simons di
 
 Credits.
 
-ClassicSimon was originally created by Keri-marie Kelly, and extended with her permission.
+ClassicSimon was originally created by my friend Keri-marie Kelly, but now extended with her permission.
 
 Good luck, and have fun!
