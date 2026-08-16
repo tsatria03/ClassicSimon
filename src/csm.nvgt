@@ -1,25 +1,4 @@
-#pragma asset sounds
-#pragma document docks
-
-#include"includes/*.nvgt"
-
-bool autopilot = false;
-bool simspeech=false;
-array<int> sequence;
-int player_index;
-int play_delay;
-int input_timeout;
-int base_play_delay = 500;
-int base_input_timeout = 2000;
-int difmod=1;
-string loaded_pack = "";
-string simontype = "";
-sound fail_sound;
-sound[] tone_sounds(4);
-sound_pool temp;
-custom_menu m;
-instance gamstance("csm");
-timer input_timer;
+#include"includes/includes.nvgt"
 void main()
 {
     show_window("ClassicSimon, version "+version);

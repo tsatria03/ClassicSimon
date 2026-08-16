@@ -1,0 +1,40 @@
+bool alt_is_down()
+{
+if(key_down(KEY_LALT) or key_down(KEY_RALT))
+{
+return true;
+}
+return false;
+}
+bool control_is_down()
+{
+if(key_down(KEY_LCTRL) or key_down(KEY_RCTRL))
+{
+return true;
+}
+return false;
+}
+bool shift_is_down()
+{
+if(key_down(KEY_LSHIFT) or key_down(KEY_RSHIFT))
+{
+return true;
+}
+return false;
+}
+string find_sound(string soundname)
+{
+string[] snd=find_files(soundname);
+if (snd.length()>0)
+{
+string[] a_path=soundname.split("/",true);
+string path=soundname.replace(a_path[a_path.length()-1],"",true);
+return path+snd[random(0,snd.length()-1)];
+}
+else
+return "";
+}
+void sort_naturally(array<string>& inout arr)
+{
+arr.sort(natural_number_sort);
+}

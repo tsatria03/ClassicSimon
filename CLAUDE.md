@@ -10,14 +10,14 @@ ClassicSimon is an audio-only (blind-accessible) **Simon memory game** written i
 
 **It's a collaboration/mirror:** the original game is by the user's friend **Keri-marie Kelly**, who gave permission to extend it — so it isn't originally the user's (hence releases carry no password). Full picture and the load-bearing systems: **[[project_game_vision]]**. The pack system: **[[project_simon_pack_system]]**.
 
-## Layout — code and assets are split (but NOT reorganized like the siblings)
+## Layout — code and assets are split, and includes now use the sibling nested `main/` tree
 
-- **`src/`** — code only. Entry `src/csm.nvgt`, plus a **flat** `src/includes/` (no `main/` subtree).
+- **`src/`** — code only. Slim entry `src/csm.nvgt` (just `#include"includes/includes.nvgt"` + `main()`), plus the **nested** `src/includes/main/{deps,functions,globals,menus}/` tree (reorged from flat on 2026-08-16).
 - **`csm/`** — runtime assets + launcher: `csm/csm.py`, `csm/docks/`, `csm/lib/` (runtime DLLs + 7zr/lame), `csm/sounds/` (`misc/` + the Simon packs under `sounds/simons/<pack>/`). No `data/` folder.
 - **`build/`** — build/release pipeline (`tools.py` via `tools.bat`; `tools.ini`; `version.txt`). **`releases/`** — compiled output (gitignored).
 - **`aidocks/`** — this project's memory folder (committed). "Memory" always means this folder.
 
-**The cwd trick:** `csm/csm.py` runs `../src/csm.nvgt` through NVGT but sets **cwd = `csm/`**, so bare `sounds/…`, `docks/…`, `lib/…` strings resolve under `csm/`, while `#include"includes/*.nvgt"` (a **flat wildcard glob** — no subfolders) resolves against the script → `src/includes/`. Full path map + the `#pragma asset` caveat: **[[project_path_conventions]]**. Include tree: **[[project_include_tree]]**.
+**The cwd trick:** `csm/csm.py` runs `../src/csm.nvgt` through NVGT but sets **cwd = `csm/`**, so bare `sounds/…`, `docks/…`, `lib/…` strings resolve under `csm/`, while `#include"includes/includes.nvgt"` (the manifest, which then globs `main/{deps,functions,globals,menus}/*`) resolves against the script → `src/includes/`. Full path map + the (now-removed) `#pragma asset` caveat: **[[project_path_conventions]]**. Include tree + manifest: **[[project_include_tree]]**.
 
 **Engine is pinned to the legacy fork at `C:\nvgt`** (BASS audio); the miniaudio build would be `C:\nvgt2` (not installed) — don't target it or suggest upgrading. **[[project_engine_pinned_nvgt2]]**.
 
@@ -25,7 +25,7 @@ ClassicSimon is an audio-only (blind-accessible) **Simon memory game** written i
 
 ## Running & building
 
-No test suite or linter. The game launches via `csm/csm.py` (runs `src/csm.nvgt` under `C:\nvgt\nvgt.exe`, cwd `csm/`, compile errors → `csm/errors.txt`) and is compiled/packaged/released via `build/tools.py` — but **the dev runs and builds, not Claude** ([[feedback_dont_run_or_build_the_game]]). The build tools are SimpleFighter's pipeline trimmed: **no installer, no website step, no archive password**. Version source of truth is `build/version.txt`, mirrored into `src/includes/version.nvgt` (glob-included) on launch and compile — never hand-edit `version.nvgt`, and don't also declare `string version` in `csm.nvgt` (duplicate global). Full pipeline: **[[project_build_pipeline]]**.
+No test suite or linter. The game launches via `csm/csm.py` (runs `src/csm.nvgt` under `C:\nvgt\nvgt.exe`, cwd `csm/`, compile errors → `csm/errors.txt`) and is compiled/packaged/released via `build/tools.py` — but **the dev runs and builds, not Claude** ([[feedback_dont_run_or_build_the_game]]). The build tools are SimpleFighter's pipeline trimmed: **no installer, no website step, no archive password**. Version source of truth is `build/version.txt`, mirrored into `src/includes/version.nvgt` (pulled first by the `includes.nvgt` manifest) on launch and compile — never hand-edit `version.nvgt`, and don't re-declare `string version` (or the `main/globals/dec.nvgt` globals) anywhere (duplicate global). Full pipeline: **[[project_build_pipeline]]**.
 
 ## Where the detail lives (read before working in an area)
 

@@ -1,16 +1,18 @@
 # ClassicSimon memory index
 
-The `[[name]]` links in `CLAUDE.md` and across these memories resolve to `aidocks/<name>.md`. Add a one-line pointer here for every new memory. "Memory" / "memories" always means this folder. ClassicSimon is a collab/mirror of Keri-marie Kelly's Simon game; it's LIGHTER than the sibling games (flat includes, LF line endings, no installer/website/password).
+The `[[name]]` links in `CLAUDE.md` and across these memories resolve to `aidocks/<name>.md`. Add a one-line pointer here for every new memory. "Memory" / "memories" always means this folder. ClassicSimon is a collab/mirror of Keri-marie Kelly's Simon game; it's LIGHTER than the sibling games (LF line endings, no installer/website/password). Its includes were reorganized on 2026-08-16 from flat to the sibling `src/includes/main/{deps,functions,globals,menus}/` nested layout, pulled by an `includes/includes.nvgt` manifest.
 
 ## Project — what the game is and how it's built
 - [Game vision](project_game_vision.md) — audio Simon memory game: pick a sound pack + difficulty, memorize and repeat a growing tone sequence; a collab/mirror of Keri-marie Kelly's game; state is in-memory only.
 - [Simon pack system](project_simon_pack_system.md) — selectable packs under csm/sounds/simons/<pack>/ (1..4.ogg + fail.ogg); find_directories enumerates, load_simon_pack loads via find_sound (random pick).
-- [Path conventions](project_path_conventions.md) — src/ (code) + csm/ (assets+launcher) + build/ + releases/ split; the cwd=csm/ trick; #pragma asset caveat; no data/ folder.
-- [Include tree](project_include_tree.md) — FLAT src/includes/ glob-included via #include"includes/*.nvgt" (no main/ subtree); version.nvgt provides the version; rotation backs sound_pool.
+- [Path conventions](project_path_conventions.md) — src/ (code) + csm/ (assets+launcher) + build/ + releases/ split; the cwd=csm/ trick; the (now-removed) #pragma asset caveat; no data/ folder.
+- [Include tree](project_include_tree.md) — NESTED src/includes/main/{deps,functions,globals,menus}/ pulled by the includes/includes.nvgt manifest; slim csm.nvgt; globals in dec.nvgt; version.nvgt provides the version; rotation backs sound_pool.
 - [Build pipeline](project_build_pipeline.md) — csm.py launcher + build/tools.py (SimpleFighter-based, NO installer / NO website / NO password); version mirroring; ASSET_FOLDERS=docks,lib,sounds.
 - [Audio model](project_audio_model.md) — 4 tones + fail as direct `sound` objects (not spatial); custom_menu's own pool for menus; clips cwd-relative to csm/.
 - [Repo hygiene](project_repo_hygiene.md) — .gitattributes enforces LF here (NOT CRLF like the siblings); gitignore hides *.ini/lib/releases; tools.ini un-ignored; CLAUDE.md + aidocks committed.
 - [Engine pinned to nvgt2](project_engine_pinned_nvgt2.md) — runs on the legacy fork at C:\nvgt (BASS); miniaudio would be C:\nvgt2 (not installed); no in-code relaunch; don't target it or suggest upgrading.
+
+- [Settings menu](project_settings_menu.md) — Play/Settings/Exit; settingsmenu() holds a session-only "Spoken hints" toggle (flips simspeech); settings reset each launch, cross-launch persistence is intended-but-deferred (no config file yet).
 
 ## NVGT / AngelScript gotchas — these cause compile failures (game won't launch)
 - [AngelScript braceless if](project_angelscript_braceless_if.md) — a braceless if/else governs one statement; a second orphans the else → compile error.

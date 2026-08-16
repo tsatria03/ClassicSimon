@@ -20,12 +20,6 @@ int base_fail = difmod * 5;
 int fail_chance = base_fail + (sequence.length() / 5);
                 if(random(0,100) < fail_chance)
                 {
-int wrong;
-do
-{
-    wrong = random(1,4);
-}
-while(wrong == correct);
                     game_over();
                     return;
                 }

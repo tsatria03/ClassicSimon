@@ -4,6 +4,7 @@ void mainmenu()
     {
         setupmenu();
         m.add_item("Play", "play");
+        m.add_item("Settings", "settings");
         m.add_item("Exit", "exit");
         m.intro_text = "Main menu. Choose an option.";
         int res = m.run();
@@ -19,11 +20,38 @@ void mainmenu()
             packmenu();
             continue;
         }
+        if(main == "settings")
+        {
+            settingsmenu();
+            continue;
+        }
         if(main == "exit")
         {
             speak("Exiting");
             m.fade_music();
             exit();
+        }
+    }
+}
+void settingsmenu()
+{
+    while(true)
+    {
+        setupmenu();
+        m.add_item("Spoken hints, currently " + (simspeech ? "on" : "off"), "hints");
+        m.add_item("Back", "back");
+        m.intro_text = "Settings menu. Choose an option.";
+        int res = m.run(0, true, true);
+        string setid = m.get_item_id(res);
+        if(res == -1 || setid == "back")
+        {
+            speak("canceled");
+            return;
+        }
+        if(setid == "hints")
+        {
+            simspeech = !simspeech;
+            continue;
         }
     }
 }
