@@ -2,7 +2,7 @@ void mainmenu()
 {
     while(true)
     {
-        setupmenu();
+        setupmenu(true);
         m.add_item("Play", "play");
         m.add_item("Settings", "settings");
         m.add_item("Exit", "exit");
@@ -22,6 +22,7 @@ void mainmenu()
         }
         if(main == "settings")
         {
+m.fade_music();
             settingsmenu();
             continue;
         }
@@ -38,7 +39,7 @@ void settingsmenu()
     int focus = 0;
     while(true)
     {
-        setupmenu();
+        setupmenu(false);
         m.add_item("Play logo at startup, currently " + (logoplay ? "on" : "off"), "logo");
         m.add_item("Spoken hints, currently " + (simspeech ? "on" : "off"), "hints");
         m.add_item("Back", "back");
@@ -50,7 +51,7 @@ void settingsmenu()
             speak("canceled");
             return;
         }
-        focus = res;
+        focus = res - 1;
         if(setid == "logo")
             logoplay = !logoplay;
         if(setid == "hints")
@@ -62,7 +63,7 @@ void packmenu()
 {
     while(true)
     {
-        setupmenu();
+        setupmenu(true);
         string[] packs = find_directories("sounds/simons/*");
         if(packs.length() == 0)
         {
@@ -89,7 +90,7 @@ void pack_options_menu()
 {
     while(true)
     {
-        setupmenu();
+        setupmenu(true);
         m.add_item("Start game", "start");
         m.add_item("Learn tones", "learn");
         m.add_item("Back", "back");
@@ -107,6 +108,7 @@ modemenu();
         }
         if(gamid == "learn")
         {
+m.fade_music();
             learnsounds();
             continue;
         }
@@ -116,7 +118,7 @@ void modemenu()
 {
     while(true)
     {
-        setupmenu();
+        setupmenu(true);
         m.add_item("easy", "dif1");
         m.add_item("medium", "dif2");
         m.add_item("hard", "dif3");
@@ -131,14 +133,13 @@ void modemenu()
         if(difid == "dif1") difmod = 1;
         if(difid == "dif2") difmod = 2;
         if(difid == "dif3") difmod = 3;
-        setupmenu();
+        setupmenu(true);
         m.add_item("Yes", "auto");
         m.add_item("No", "manual");
-        m.add_item("Back", "back");
         m.intro_text = "Would you like to enable autopilot for this game?";
-        int ares = m.run(1, true, true);
+        int ares = m.run(0, true, true);
         string aid = m.get_item_id(ares);
-        if(ares == -1 || aid == "back")
+        if(ares == -1)
         {
             continue;
         }
@@ -146,6 +147,7 @@ void modemenu()
             autopilot = false;
         if(aid == "auto")
             autopilot = true;
+m.fade_music();
         play_game();
     }
 }

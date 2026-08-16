@@ -2,7 +2,7 @@ void setupmenu(bool music_added = false)
 {
 if (music_added)
 {
-m.add_music("sounds/misc/menumusic.ogg");
+m.add_music("sounds/misc/menumus.ogg");
 } else
 {
 m.add_music("");

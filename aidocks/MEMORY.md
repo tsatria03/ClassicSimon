@@ -15,6 +15,8 @@ The `[[name]]` links in `CLAUDE.md` and across these memories resolve to `aidock
 - [Settings menu](project_settings_menu.md) — Play/Settings/Exit; settingsmenu() holds on/off toggles for "Play logo at startup" (logoplay) and "Spoken hints" (simspeech), with per-item focus tracking; both now persist across launches.
 - [Save data layout](project_save_data_layout.md) — settings persist to DIRECTORY_APPDATA + tsatria03/ClassicSimon/saves/settings.tmg via the savedata `st` instance + readpreffs/writepreffs (savefuncts.nvgt); key currently blank/plaintext; only logoplay + simspeech saved, no stats file.
 
+- [custom_menu run() index bases](project_custom_menu_run_indexing.md) — run() RETURNS 1-based (current_item+1) and get_item_id expects that, but run()'s start_position arg is 0-based; subtract 1 when feeding a returned index back as start_position (bit the settings menu focus).
+
 ## NVGT / AngelScript gotchas — these cause compile failures (game won't launch)
 - [AngelScript braceless if](project_angelscript_braceless_if.md) — a braceless if/else governs one statement; a second orphans the else → compile error.
 - [AngelScript reserved words](project_angelscript_reserved_words.md) — never name a variable `out` (or in/inout/shared/final/from…); reserved keyword → compile error.

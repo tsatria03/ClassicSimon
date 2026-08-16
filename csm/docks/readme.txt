@@ -4,7 +4,11 @@ ClassicSimon is a simple audio memory game in the classic "Simon" style. The gam
 
 Getting started.
 
-When you open the game, a short logo plays. Press enter to fade it and skip ahead if you like. You will then land on the main menu, which has two options, Play and Exit.
+When you open the game, a short logo plays. Press enter to fade it and skip ahead if you like. You will then land on the main menu, which has three options, Play, Settings, and Exit.
+
+Settings.
+
+Choose Settings from the main menu to adjust a couple of options. Spoken hints, which are on by default, control the extra speech during a game, the game announces each round number, says go when it is your turn, and names each arrow as you press it in learn tones. Turn them off if you would rather play by the tones alone. Play logo at startup controls whether the logo plays when you open the game, turn it off to skip straight to the main menu the next time you launch. Each option is a simple on or off toggle, and your choices are remembered between sessions, so you only need to set them once. Press escape, or choose Back, to return to the main menu.
 
 Choosing a Simon.
 

@@ -1,6 +1,8 @@
 void readpreffs()
 {
 st.load();
+if(st.d.exists("menumusvolume"))
+menumusvolume = st.read_int("menumusvolume");
 if(st.d.exists("logoplay"))
 logoplay = st.read_bool("logoplay");
 if(st.d.exists("simspeech"))
@@ -10,6 +12,7 @@ void writepreffs()
 {
 if(!directory_exists(savePath))
 directory_create(savePath);
+st.add("menumusvolume", menumusvolume);
 st.add("logoplay", logoplay);
 st.add("simspeech", simspeech);
 st.save();

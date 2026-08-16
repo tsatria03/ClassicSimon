@@ -1,4 +1,5 @@
 New in 1.0.
+Added some menu music to the game. You can change the volume for them by pressing the page up and page down keys.
 Made it so all of your changed settings are now remembered between sessions.
 Improved autopilot mode. It no longer says go when a round begins, and when it slips up the game now says the computer failed instead of you failed.
 Added a setting to turn off the logo that plays at startup. You can find this toggle in the settings menu.
