@@ -9,6 +9,7 @@ exit();
 }
 else
 {
+readpreffs();
 wait(500);
 if(logoplay)
 {

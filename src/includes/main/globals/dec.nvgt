@@ -14,5 +14,7 @@ sound fail_sound;
 sound[] tone_sounds(4);
 sound_pool temp;
 custom_menu m;
+string savePath = DIRECTORY_APPDATA + "tsatria03/ClassicSimon/saves";
+savedata st(DIRECTORY_APPDATA + "tsatria03/ClassicSimon/saves/settings.tmg", "");
 instance gamstance("csm");
 timer input_timer;

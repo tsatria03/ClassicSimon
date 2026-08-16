@@ -55,6 +55,7 @@ void settingsmenu()
             logoplay = !logoplay;
         if(setid == "hints")
             simspeech = !simspeech;
+        writepreffs();
     }
 }
 void packmenu()

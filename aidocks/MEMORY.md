@@ -12,7 +12,8 @@ The `[[name]]` links in `CLAUDE.md` and across these memories resolve to `aidock
 - [Repo hygiene](project_repo_hygiene.md) — .gitattributes enforces LF here (NOT CRLF like the siblings); gitignore hides *.ini/lib/releases; tools.ini un-ignored; CLAUDE.md + aidocks committed.
 - [Engine pinned to nvgt2](project_engine_pinned_nvgt2.md) — runs on the legacy fork at C:\nvgt (BASS); miniaudio would be C:\nvgt2 (not installed); no in-code relaunch; don't target it or suggest upgrading.
 
-- [Settings menu](project_settings_menu.md) — Play/Settings/Exit; settingsmenu() holds a session-only "Spoken hints" toggle (flips simspeech); settings reset each launch, cross-launch persistence is intended-but-deferred (no config file yet).
+- [Settings menu](project_settings_menu.md) — Play/Settings/Exit; settingsmenu() holds on/off toggles for "Play logo at startup" (logoplay) and "Spoken hints" (simspeech), with per-item focus tracking; both now persist across launches.
+- [Save data layout](project_save_data_layout.md) — settings persist to DIRECTORY_APPDATA + tsatria03/ClassicSimon/saves/settings.tmg via the savedata `st` instance + readpreffs/writepreffs (savefuncts.nvgt); key currently blank/plaintext; only logoplay + simspeech saved, no stats file.
 
 ## NVGT / AngelScript gotchas — these cause compile failures (game won't launch)
 - [AngelScript braceless if](project_angelscript_braceless_if.md) — a braceless if/else governs one statement; a second orphans the else → compile error.

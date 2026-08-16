@@ -1,8 +1,9 @@
 New in 1.0.
-Added a setting to turn off the logo that plays at startup. This will take effect once settings can be saved between sessions.
+Made it so all of your changed settings are now remembered between sessions.
 Improved autopilot mode. It no longer says go when a round begins, and when it slips up the game now says the computer failed instead of you failed.
-Added a settings menu, reachable from the main menu, where you can turn spoken hints on or off for the current session.
-Added spoken hints, which are on by default. The game announces each round number, says go when it is your turn to repeat the sequence, and names each arrow as you press it in learn tones. You'll be able to switch these off in the future.
+Added a setting to turn off the logo that plays at startup. You can find this toggle in the settings menu.
+Added a settings menu, reachable from the main menu, where you can turn spoken hints on or off.
+Added spoken hints, which are on by default. The game announces each round number, says go when it is your turn to repeat the sequence, and names each arrow as you press it in learn tones.
 Updated the readme with clearer instructions on how to play, plus new sections covering difficulty, autopilot, learn tones, and adding your own Simon packs.
 Added an autopilot option in the main menu. You can have the game automaticly play for you, and let it fail at random.
 Added a basic score system to the game. You will here the total score you got upon failing a round.
