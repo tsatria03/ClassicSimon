@@ -1,5 +1,6 @@
 bool autopilot = false;
 bool simspeech=true;
+bool logoplay=true;
 array<int> sequence;
 int player_index;
 int play_delay;

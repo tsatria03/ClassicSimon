@@ -35,24 +35,26 @@ void mainmenu()
 }
 void settingsmenu()
 {
+    int focus = 0;
     while(true)
     {
         setupmenu();
+        m.add_item("Play logo at startup, currently " + (logoplay ? "on" : "off"), "logo");
         m.add_item("Spoken hints, currently " + (simspeech ? "on" : "off"), "hints");
         m.add_item("Back", "back");
         m.intro_text = "Settings menu. Choose an option.";
-        int res = m.run(0, true, true);
+        int res = m.run(focus, true, true);
         string setid = m.get_item_id(res);
         if(res == -1 || setid == "back")
         {
             speak("canceled");
             return;
         }
+        focus = res;
+        if(setid == "logo")
+            logoplay = !logoplay;
         if(setid == "hints")
-        {
             simspeech = !simspeech;
-            continue;
-        }
     }
 }
 void packmenu()

@@ -10,8 +10,11 @@ exit();
 else
 {
 wait(500);
+if(logoplay)
+{
 speak("KMK and Tsatria03 productions presents, ClassicSimon! Press enter to continue.");
 dlgplay("sounds/misc/logo.ogg");
-    mainmenu();
-    }
+}
+mainmenu();
+}
 }
