@@ -45,7 +45,7 @@ int fail_chance = base_fail + (sequence.length() / 5);
             game_over();
             return;
         }
-        int expected_index = (gamemode == 2) ? (int(sequence.length()) - 1 - player_index) : player_index;
+        int expected_index = (gamemode == 2 || gamemode == 4) ? (int(sequence.length()) - 1 - player_index) : player_index;
         if(pressed != sequence[expected_index])
         {
             game_over();

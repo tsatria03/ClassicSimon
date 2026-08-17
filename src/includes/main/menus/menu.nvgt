@@ -145,9 +145,10 @@ void modemenu()
     while(true)
     {
         setupmenu(true);
-        m.add_item("Classic", "classic");
-        m.add_item("Reverse", "reverse");
-        m.add_item("Shuffle", "shuffle");
+        m.add_item("Classic. Repeat the same sequence in order as it grows one tone longer each round.", "classic");
+        m.add_item("Classic reverse. Repeat the same sequence backwards as it grows one tone longer each round.", "classicreverse");
+        m.add_item("Shuffle. A brand new random sequence every round, each one tone longer than the last.", "shuffle");
+        m.add_item("Shuffle reverse. A brand new random sequence every round that you repeat backwards, each one tone longer than the last.", "shufflereverse");
         m.add_item("back", "back");
         m.intro_text = "Choose a game mode.";
         int res = m.run();
@@ -155,8 +156,9 @@ void modemenu()
         if(res == -1 || modeid == "back")
             return;
         if(modeid == "classic") gamemode = 1;
-        if(modeid == "reverse") gamemode = 2;
+        if(modeid == "classicreverse") gamemode = 2;
         if(modeid == "shuffle") gamemode = 3;
+        if(modeid == "shufflereverse") gamemode = 4;
         diffmenu();
     }
 }

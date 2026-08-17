@@ -16,8 +16,9 @@ string get_difficulty_name(int dif)
 string get_mode_name(int mode)
 {
     if(mode == 1) return "classic";
-    if(mode == 2) return "reverse";
+    if(mode == 2) return "classic reverse";
     if(mode == 3) return "shuffle";
+    if(mode == 4) return "shuffle reverse";
     return "unknown";
 }
 void load_simon_pack(string pack)
@@ -96,7 +97,7 @@ void play_sequence()
 void next_round()
 {
     player_index = 0;
-    if(gamemode == 3)
+    if(gamemode == 3 || gamemode == 4)
     {
         int len = int(sequence.length()) + 1;
         sequence.resize(0);
