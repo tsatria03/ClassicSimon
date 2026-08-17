@@ -48,7 +48,6 @@ void settingsmenu()
         string setid = m.get_item_id(res);
         if(res == -1 || setid == "back")
         {
-            speak("canceled");
             return;
         }
         focus = res - 1;
@@ -136,13 +135,32 @@ void viewscores()
         string id = m.get_item_id(res);
         if(res == -1 || id == "back")
         {
-            speak("canceled");
             return;
         }
         focus = res - 1;
     }
 }
 void modemenu()
+{
+    while(true)
+    {
+        setupmenu(true);
+        m.add_item("Classic", "classic");
+        m.add_item("Reverse", "reverse");
+        m.add_item("Shuffle", "shuffle");
+        m.add_item("back", "back");
+        m.intro_text = "Choose a game mode.";
+        int res = m.run();
+        string modeid = m.get_item_id(res);
+        if(res == -1 || modeid == "back")
+            return;
+        if(modeid == "classic") gamemode = 1;
+        if(modeid == "reverse") gamemode = 2;
+        if(modeid == "shuffle") gamemode = 3;
+        diffmenu();
+    }
+}
+void diffmenu()
 {
     while(true)
     {

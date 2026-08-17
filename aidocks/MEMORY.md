@@ -36,8 +36,9 @@ The `[[name]]` links in `CLAUDE.md` and across these memories resolve to `aidock
 - [Changelog rules](feedback_changelog_rules.md) — docks/changelog.txt: player-facing prose, reverse-chronological, a record not a manual; bump version.txt with each block.
 - [Dock line length 1024](feedback_dock_line_length_1024.md) — keep every line in csm/docks/ at or under 1024 chars; the screen reader splits longer lines.
 - [One-sentence game messages](feedback_one_sentence_game_messages.md) — in-game spoken feedback is exactly one sentence; no trailing advice.
-- [Menus say canceled](feedback_menus_say_canceled.md) — every menu/input escape/Back/No path speaks "canceled".
+- [Menus stay silent on cancel](feedback_menus_say_canceled.md) — REVERSED 2026-08-16: menus/input must NOT speak "canceled" on escape/Back/No; the dev wants nothing to say canceled (legacy filename slug).
 - [Yes/no menu labels](feedback_yes_no_menu_labels.md) — label items exactly Yes/No (Yes first); context goes in the prompt.
+- [Don't modify dep includes](feedback_dont_modify_deps.md) — never edit files under src/includes/main/deps/ (custom_menu, speech, savedata, etc.); they're vendored/read-only, work around them in game code.
 - [Multiline comment style](feedback_multiline_comment_style.md) — multi-line comments use one /* */ block, not stacked //.
 - [Don't flag indentation](feedback_dont_flag_indentation.md) — AngelScript ignores indentation; don't flag whitespace or reformat.
 - [No CRLF normalization](feedback_no_crlf_normalization.md) — don't run a manual normalizer; preserve each file's ending. NOTE this repo is LF, unlike the CRLF siblings.

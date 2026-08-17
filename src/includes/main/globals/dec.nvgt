@@ -8,6 +8,7 @@ int input_timeout;
 int base_play_delay = 500;
 int base_input_timeout = 2000;
 int difmod=1;
+int gamemode=1;
 string loaded_pack = "";
 string simontype = "";
 sound fail_sound;

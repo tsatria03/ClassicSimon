@@ -13,6 +13,13 @@ string get_difficulty_name(int dif)
     if(dif == 3) return "hard";
     return "unknown";
 }
+string get_mode_name(int mode)
+{
+    if(mode == 1) return "classic";
+    if(mode == 2) return "reverse";
+    if(mode == 3) return "shuffle";
+    return "unknown";
+}
 void load_simon_pack(string pack)
 {
     if(loaded_pack == pack)
@@ -89,7 +96,15 @@ void play_sequence()
 void next_round()
 {
     player_index = 0;
-    sequence.push_back(random(1,4));
+    if(gamemode == 3)
+    {
+        int len = int(sequence.length()) + 1;
+        sequence.resize(0);
+        for(int i = 0; i < len; i++)
+            sequence.push_back(random(1,4));
+    }
+    else
+        sequence.push_back(random(1,4));
 if(simspeech) speak("Round " + string(sequence.length()));
     wait(500);
     play_sequence();

@@ -11,4 +11,4 @@ For a yes/no menu, label the two items exactly `"Yes"` and `"No"`, with **Yes fi
 
 **Why:** Short, predictable labels are fast to hear and consistent across the game; a screen-reader player learns "Yes is first." Verbose labels ("Yes, delete my save") slow every read.
 
-**How to apply:** Question line carries the meaning ("Are you sure you want to delete this save?"); the two items are just Yes / No. Cancel/escape still speaks "canceled" ([[feedback_menus_say_canceled]]).
+**How to apply:** Question line carries the meaning ("Are you sure you want to delete this save?"); the two items are just Yes / No. Cancel/escape returns silently — nothing says "canceled" ([[feedback_menus_say_canceled]]).
