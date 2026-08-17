@@ -1,2 +1,2 @@
 # ClassicSimon
-A mirror of a simon game created by my friend Keri-marie Kelly.
+A flexible memmory game that involves following complex patterns.
