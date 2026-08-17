@@ -1,0 +1,71 @@
+/* cmf.nvgt - parser for a pack's info.cmf config (key=value lines).
+ * Blank lines and lines starting with # or ; are ignored. Values are read
+ * on demand with a default, so a missing file, missing key, or bad value
+ * always falls back to the game's default. */
+class cmf
+{
+    dictionary d;
+    void load(string path)
+    {
+        d.clear();
+        if(!file_exists(path))
+            return;
+        file f;
+        f.open(path, "rb");
+        string content = f.read();
+        f.close();
+        string[]@ lines = content.split("\n", true);
+        for(uint i = 0; i < lines.length(); i++)
+        {
+            string line = lines[i].trim_whitespace();
+            if(line == "" || line.starts_with("#") || line.starts_with(";"))
+                continue;
+            string[]@ kv = line.split("=", true);
+            if(kv.length() < 2)
+                continue;
+            string key = kv[0].trim_whitespace();
+            if(key == "")
+                continue;
+            d.set(key, kv[1].trim_whitespace());
+        }
+    }
+    bool has(string key)
+    {
+        return d.exists(key);
+    }
+    int get_int(string key, int def)
+    {
+        if(!d.exists(key))
+            return def;
+        string v;
+        d.get(key, v);
+        v = v.trim_whitespace();
+        if(v == "" || !v.is_digits())
+            return def;
+        return int(string_to_number(v));
+    }
+    // Returns the index-th colon-separated value (0-based) as an int, or def
+    // if the key is absent, the slot is missing, or the slot isn't a number.
+    int get_list_int(string key, int index, int def)
+    {
+        if(!d.exists(key))
+            return def;
+        string v;
+        d.get(key, v);
+        string[]@ parts = v.split(":", true);
+        if(index < 0 || index >= int(parts.length()))
+            return def;
+        string p = parts[index].trim_whitespace();
+        if(p == "" || !p.is_digits())
+            return def;
+        return int(string_to_number(p));
+    }
+    string get_string(string key, string def)
+    {
+        if(!d.exists(key))
+            return def;
+        string v;
+        d.get(key, v);
+        return v.trim_whitespace();
+    }
+}
