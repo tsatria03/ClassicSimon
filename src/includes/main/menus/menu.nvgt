@@ -89,6 +89,7 @@ void pack_options_menu()
 {
     while(true)
     {
+        quit_to_pack = false;
         setupmenu(true);
         m.add_item("Start game", "start");
         m.add_item("Learn tones", "learn");
@@ -183,6 +184,8 @@ void modemenu()
         if(modeid == "shuffle") gamemode = 3;
         if(modeid == "shufflereverse") gamemode = 4;
         diffmenu();
+        if(quit_to_pack)
+            return;
     }
 }
 void diffmenu()
@@ -220,5 +223,7 @@ void diffmenu()
             autopilot = true;
 m.fade_music();
         play_game();
+        if(quit_to_pack)
+            return;
     }
 }

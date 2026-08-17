@@ -18,13 +18,21 @@ Game modes.
 
 When you start a game, you first choose one of four game modes. They change how the sequence is built and how you repeat it. Here is what each one does.
 
-Classic. This is the traditional Simon. Each round the game adds one new tone to the end of the sequence, and the part you already learned stays the same, so you only have to remember the new tone on the end. You repeat the whole sequence in the same order it played. For example, if round two plays down then up, you press down then up.
+Classic.
 
-Classic reverse. The sequence grows exactly like classic, one new tone on the end each round, but you repeat it backwards, from the last tone to the first. For example, if round two plays down then up, you press up then down. In round one there is only a single tone, so forwards and backwards are the same.
+This is the traditional Simon. Each round the game adds one new tone to the end of the sequence, and the part you already learned stays the same, so you only have to remember the new tone on the end. You repeat the whole sequence in the same order it played. For example, if round two plays down then up, you press down then up.
 
-Shuffle. Instead of building on a sequence you already know, each round throws out the old one and plays a brand new random sequence, one tone longer than the last. Nothing carries over, so you memorize a fresh sequence every round. You still repeat it in the order it played. For example, round two might be left then right, while round three could be a completely different up, down, left.
+Classic reverse.
 
-Shuffle reverse. This is the toughest mode. Each round is a brand new random sequence like shuffle, and you repeat it backwards like reverse. For example, if a round plays left, down, up, you press up, down, left.
+The sequence grows exactly like classic, one new tone on the end each round, but you repeat it backwards, from the last tone to the first. For example, if round two plays down then up, you press up then down. In round one there is only a single tone, so forwards and backwards are the same.
+
+Shuffle.
+
+Instead of building on a sequence you already know, each round throws out the old one and plays a brand new random sequence, one tone longer than the last. Nothing carries over, so you memorize a fresh sequence every round. You still repeat it in the order it played. For example, round two might be left then right, while round three could be a completely different up, down, left.
+
+Shuffle reverse.
+
+This is the toughest mode. Each round is a brand new random sequence like shuffle, and you repeat it backwards like reverse. For example, if a round plays left, down, up, you press up, down, left.
 
 Difficulty and autopilot.
 
@@ -45,9 +53,5 @@ Choose View scores from a Simon's menu to hear your best runs for that Simon. Fi
 Adding your own Simons.
 
 The pack system is open, so any folder you drop into the game's sounds/simons directory becomes a playable Simon. A pack just needs five sounds, 1.ogg, 2.ogg, 3.ogg, and 4.ogg for the four tones, and fail.ogg for a miss. Name the folder whatever you want, that name is what shows up in the Play menu.
-
-Credits.
-
-ClassicSimon was originally created by my friend Keri-marie Kelly, but now extended with her permission.
 
 Good luck, and have fun!

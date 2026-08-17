@@ -9,6 +9,7 @@ int base_play_delay = 500;
 int base_input_timeout = 2000;
 int difmod=1;
 int gamemode=1;
+bool quit_to_pack=false;
 string loaded_pack = "";
 string simontype = "";
 sound fail_sound;

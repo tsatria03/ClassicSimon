@@ -127,7 +127,7 @@ speak("Learn tones. Arrow keys play tones. F plays fail. Escape to return.");
 {
 stop_all_tones();
 stop_fail();
-mainmenu();
+return;
         }
 if(key_pressed(KEY_LEFT))
 {

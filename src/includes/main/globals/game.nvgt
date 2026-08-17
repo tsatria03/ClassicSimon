@@ -7,7 +7,7 @@ void game_loop()
         {
 stop_all_tones();
 stop_fail();
-            mainmenu();
+            quit_to_pack = true;
             return;
         }
         if(autopilot)
@@ -72,7 +72,7 @@ if(!autopilot)
     newbest = record_score(simontype, gamemode, difmod, score);
 string word = (score == 1 ? "sequence" : "sequences");
 string who = (autopilot ? "the computer failed" : "you failed");
-speak("Oops, " + who + " after memorizing " + string(score) + " " + word + "." + (newbest ? " New best score!" : "") + " Press enter to try again, or escape to go back to the main menu.");
+speak("Oops, " + who + " after memorizing " + string(score) + " " + word + "." + (newbest ? " New best score!" : "") + " Press enter to try again, or escape to go back to this Simon's menu.");
     while(true)
     {
         wait(5);
@@ -82,7 +82,7 @@ speak("Oops, " + who + " after memorizing " + string(score) + " " + word + "." +
         }
         if(key_pressed(KEY_ESCAPE))
         {
-            mainmenu();
+            quit_to_pack = true;
             return;
         }
     }
@@ -104,5 +104,7 @@ void play_game()
 wait(5);
         start_game();
         game_loop();
+        if(quit_to_pack)
+            return;
     }
 }

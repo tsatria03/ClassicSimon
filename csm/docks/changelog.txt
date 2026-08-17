@@ -1,4 +1,5 @@
 New in 1.0.
+Fixed the escape key so that leaving a game, the fail screen, or learn tones now takes you back to that Simon's menu, instead of all the way back out to the main menu.
 Made it so best scores are now tracked separately for every game mode as well as every difficulty. Choose View scores from a Simon's menu, pick a game mode, and you will hear your best for easy, medium, and hard in that mode. Your bests are remembered between sessions, and autopilot games still do not count.
 Added three new game modes alongside the original, which is now called classic. Classic reverse plays like classic, but you repeat the sequence backwards. Shuffle gives you a brand new random sequence every round instead of adding to the same one. Shuffle reverse combines both, a fresh sequence each round that you repeat backwards. You choose a mode when you start a game, before picking a difficulty.
 Added a view scores option to each Simon's menu, where you can see your best score for easy, medium, and hard. Your best is remembered between sessions, and autopilot games do not count toward it.
@@ -9,10 +10,10 @@ Added a setting to turn off the logo that plays at startup. You can find this to
 Added a settings menu, reachable from the main menu, where you can turn spoken hints on or off.
 Added spoken hints, which are on by default. The game announces each round number, says go when it is your turn to repeat the sequence, and names each arrow as you press it in learn tones.
 Updated the readme with clearer instructions on how to play, plus new sections covering difficulty, autopilot, learn tones, and adding your own Simon packs.
-Added an autopilot option in the main menu. You can have the game automaticly play for you, and let it fail at random.
-Added a basic score system to the game. You will here the total score you got upon failing a round.
+Added an autopilot option in the main menu. You can have the game automatically play for you, and let it fail at random.
+Added a basic score system to the game. You will hear the total score you got upon failing a round.
 Fixed difficulty option scaling.
-Added difficulty options to the game. This controls how fast the game tones play, along with how rappidly it speeds up when playing, and failling.
+Added difficulty options to the game. This controls how fast the game tones play, along with how rapidly it speeds up when playing, and failing.
 Updated the logo sound to be fadable when the enter key is pressed.
 Fixed a bunch of bugs with menus, and replaced the old system with a much more reliable one.
 Added a dynamic pack system to the game. You can now add any type of simon game you want to play.
