@@ -72,33 +72,20 @@ void stop_all_tones()
 }
 void apply_difficulty()
 {
-    if(difmod == 1) // Easy
-    {
-        play_delay = 500;
-        input_timeout = 2000;
-    }
-    else if(difmod == 2)
-    {
-        play_delay = 400;
-        input_timeout = 1500;
-    }
-    else if(difmod == 3)
-    {
-        play_delay = 300;
-        input_timeout = 1000;
-    }
-    else if(difmod == 4)
-    {
-        play_delay = 200;
-        input_timeout = 500;
-    }
+    int[] pd_def = {500, 400, 300, 200};
+    int[] rt_def = {2000, 1500, 1000, 500};
+    int idx = difmod - 1;
+    if(idx < 0 || idx > 3)
+        idx = 0;
+    play_delay = packinfo.get_list_int("playback_delay", idx, pd_def[idx]);
+    input_timeout = packinfo.get_list_int("reaction_delay", idx, rt_def[idx]);
 }
 void play_sequence()
 {
     for(uint i = 0; i < sequence.length(); i++)
     {
         play_tone(sequence[i]);
-        wait(play_delay + 50);
+        wait(play_delay + packinfo.get_int("tone_padding", 50));
     }
 }
 void next_round()
@@ -118,10 +105,13 @@ if(simspeech) speak("Round " + string(sequence.length()));
     play_sequence();
 if(simspeech && !autopilot) speak("go");
     input_timer.restart();
-    if(play_delay > 100)
-        play_delay -= 5*difmod;
-    if(input_timeout > 200)
-        input_timeout -= 5*difmod;
+    int step = packinfo.get_int("ramp_step", 5) * difmod;
+    int pfloor = packinfo.get_int("playback_floor", 100);
+    int rfloor = packinfo.get_int("reaction_floor", 200);
+    if(play_delay > pfloor)
+        play_delay -= step;
+    if(input_timeout > rfloor)
+        input_timeout -= step;
 }
 void learnsounds()
 {

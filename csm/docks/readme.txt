@@ -12,7 +12,7 @@ Choose Settings from the main menu to adjust a couple of options. Spoken hints, 
 
 Choosing a Simon.
 
-Choose Play to pick a Simon. The list is built from the sound packs you have installed, so whatever packs are present will show up here. You can add your own too, see "Adding your own Simons" below. Pick one to open its menu, where you can Start game, Learn tones, or View scores.
+Choose Play to pick a Simon. The list is built from the sound packs you have installed, so whatever packs are present will show up here. You can add your own too, see "Creating your own Simons" below. Pick one to open its menu, where you can Start game, Learn tones, or View scores.
 
 Game modes.
 
@@ -48,10 +48,30 @@ Not sure which arrow is which? Choose Learn tones from a Simon's menu. There you
 
 Viewing your scores.
 
-Choose View scores from a Simon's menu to hear your best runs for that Simon. First you pick which game mode's scores you want, classic, classic reverse, shuffle, or shuffle reverse. Then you get one line for each difficulty, easy, medium, and hard, telling you the most tones you have ever memorized in a single game of that mode at that level. If you have not played a mode and difficulty yet, it will say no score recorded. Your best is saved separately for every mode and difficulty, and remembered between sessions, so you always have something to beat. Games played on autopilot do not count, since the computer is playing, not you. Press escape, or choose Back, to return.
+Choose View scores from a Simon's menu to hear your best runs for that Simon. First you pick which game mode's scores you want, classic, classic reverse, shuffle, or shuffle reverse. Then you get one line for each difficulty, easy, medium, hard, and insane, telling you the most tones you have ever memorized in a single game of that mode at that level. If you have not played a mode and difficulty yet, it will say no score recorded. Your best is saved separately for every mode and difficulty, and remembered between sessions, so you always have something to beat. Games played on autopilot do not count, since the computer is playing, not you. Press escape, or choose Back, to return.
 
-Adding your own Simons.
+Creating your own Simons.
 
-The pack system is open, so any folder you drop into the game's sounds/simons directory becomes a playable Simon. A pack just needs five sounds, 1.ogg, 2.ogg, 3.ogg, and 4.ogg for the four tones, and fail.ogg for a miss. Name the folder whatever you want, that name is what shows up in the Play menu.
+Making your own Simon is easy. Inside the game's sounds folder, then the simons folder, create a new folder. The name you give that folder is the name that shows up in the Play menu, so call it whatever you like. Inside it, place five sound files, all in ogg format. Four of them are the tones, named 1.ogg, 2.ogg, 3.ogg, and 4.ogg, which map to the left, down, up, and right arrows in that order. The fifth is fail.ogg, which plays when you miss a tone. That is all a pack needs, and it will appear in the Play menu the next time you open it. You can also include an optional info.cmf file to fine tune how your pack plays, which is covered next.
+
+Tuning a pack with info.cmf.
+
+Any pack can include an optional text file called info.cmf that adjusts its timing. It is completely optional. If you leave the file out, or leave out any single line, the game uses its normal default for that setting, so you only need to include the lines you want to change. Write one setting per line in the form name=value. Blank lines are ignored, and a line that starts with a number sign or a semicolon is treated as a comment. All times are in milliseconds, and a bigger number means slower and more forgiving. The available settings are listed below.
+
+playback_delay. The gap between tones while the game plays the sequence. It takes one value per difficulty, in the order easy, medium, hard, insane, separated by colons. For example, playback_delay=500:400:300:200.
+
+reaction_delay. How long you have to press each tone before you time out. It also takes one value per difficulty separated by colons, for example reaction_delay=2000:1500:1000:500.
+
+ramp_step. How much the playback gap and the reaction window shrink each round. This value is multiplied by the difficulty, so higher difficulties speed up faster.
+
+playback_floor. The fastest the playback gap can ever get, no matter how long the game goes.
+
+reaction_floor. The shortest the reaction window can ever get.
+
+tone_padding. A small fixed gap added after every tone, so that two of the same tone in a row stay distinct.
+
+autopilot_risk. How reckless autopilot is. It is multiplied by the difficulty to set the base chance that autopilot slips up, so a higher number makes it fail sooner.
+
+autopilot_factor. Also shapes autopilot's mistakes. The current sequence length is divided by this number and added to the fail chance, so a smaller number makes long sequences riskier for autopilot.
 
 Good luck, and have fun!

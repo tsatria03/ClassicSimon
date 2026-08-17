@@ -16,8 +16,10 @@ stop_fail();
             {
 wait(play_delay + random(50, 150));
                 int correct = sequence[i];
-int base_fail = difmod * 5;
-int fail_chance = base_fail + (sequence.length() / 5);
+int base_fail = difmod * packinfo.get_int("autopilot_risk", 5);
+int factor = packinfo.get_int("autopilot_factor", 5);
+if(factor < 1) factor = 1;
+int fail_chance = base_fail + (int(sequence.length()) / factor);
                 if(random(0,100) < fail_chance)
                 {
                     game_over();
