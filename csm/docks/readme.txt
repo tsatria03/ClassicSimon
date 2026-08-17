@@ -14,13 +14,25 @@ Choosing a Simon.
 
 Choose Play to pick a Simon. The list is built from the sound packs you have installed, so whatever packs are present will show up here. You can add your own too, see "Adding your own Simons" below. Pick one to open its menu, where you can Start game, Learn tones, or View scores.
 
+Game modes.
+
+When you start a game, you first choose one of four game modes. They change how the sequence is built and how you repeat it. Here is what each one does.
+
+Classic. This is the traditional Simon. Each round the game adds one new tone to the end of the sequence, and the part you already learned stays the same, so you only have to remember the new tone on the end. You repeat the whole sequence in the same order it played. For example, if round two plays down then up, you press down then up.
+
+Classic reverse. The sequence grows exactly like classic, one new tone on the end each round, but you repeat it backwards, from the last tone to the first. For example, if round two plays down then up, you press up then down. In round one there is only a single tone, so forwards and backwards are the same.
+
+Shuffle. Instead of building on a sequence you already know, each round throws out the old one and plays a brand new random sequence, one tone longer than the last. Nothing carries over, so you memorize a fresh sequence every round. You still repeat it in the order it played. For example, round two might be left then right, while round three could be a completely different up, down, left.
+
+Shuffle reverse. This is the toughest mode. Each round is a brand new random sequence like shuffle, and you repeat it backwards like reverse. For example, if a round plays left, down, up, you press up, down, left.
+
 Difficulty and autopilot.
 
-When you start a game you can set the difficulty to easy, medium, or hard. Difficulty controls how fast the tones play and how quickly the game speeds up as you go, and as you fail. You can also turn on autopilot, which lets the game play itself for a while and fail at random. It is handy for a demo, or just to sit back and listen.
+After you pick a game mode, you set the difficulty to easy, medium, or hard. Difficulty controls how fast the tones play and how quickly the game speeds up as you go, and as you fail. You can also turn on autopilot, which lets the game play itself for a while and fail at random. It is handy for a demo, or just to sit back and listen.
 
 How to play.
 
-Each of the four arrow keys is one of the four tones, left, down, up, and right. Listen to the sequence the game plays, then press the arrows in the same order. Every round adds one more tone to the end of the sequence. If you press the wrong tone, the round ends and the game speaks your score for that round.
+Each of the four arrow keys is one of the four tones, left, down, up, and right. Listen to the sequence the game plays, then repeat it with the arrow keys. Exactly how the sequence grows, and whether you repeat it forwards or backwards, depends on the game mode you chose, see Game modes above. If you press the wrong tone, the round ends and the game speaks your score for that round.
 
 Learn tones.
 
@@ -28,7 +40,7 @@ Not sure which arrow is which? Choose Learn tones from a Simon's menu. There you
 
 Viewing your scores.
 
-Choose View scores from a Simon's menu to hear your best runs for that Simon. There is one line for each difficulty, easy, medium, and hard, and it tells you the most tones you have ever memorized in a single game at that level. If you have not played a difficulty yet, it will say no score recorded. Your best for each difficulty is saved and remembered between sessions, so you always have something to beat. Games played on autopilot do not count, since the computer is playing, not you. Press escape, or choose Back, to return.
+Choose View scores from a Simon's menu to hear your best runs for that Simon. First you pick which game mode's scores you want, classic, classic reverse, shuffle, or shuffle reverse. Then you get one line for each difficulty, easy, medium, and hard, telling you the most tones you have ever memorized in a single game of that mode at that level. If you have not played a mode and difficulty yet, it will say no score recorded. Your best is saved separately for every mode and difficulty, and remembered between sessions, so you always have something to beat. Games played on autopilot do not count, since the computer is playing, not you. Press escape, or choose Back, to return.
 
 Adding your own Simons.
 

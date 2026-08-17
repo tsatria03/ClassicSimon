@@ -1,4 +1,6 @@
 New in 1.0.
+Made it so best scores are now tracked separately for every game mode as well as every difficulty. Choose View scores from a Simon's menu, pick a game mode, and you will hear your best for easy, medium, and hard in that mode. Your bests are remembered between sessions, and autopilot games still do not count.
+Added three new game modes alongside the original, which is now called classic. Classic reverse plays like classic, but you repeat the sequence backwards. Shuffle gives you a brand new random sequence every round instead of adding to the same one. Shuffle reverse combines both, a fresh sequence each round that you repeat backwards. You choose a mode when you start a game, before picking a difficulty.
 Added a view scores option to each Simon's menu, where you can see your best score for easy, medium, and hard. Your best is remembered between sessions, and autopilot games do not count toward it.
 Added some menu music to the game. You can change the volume for them by pressing the page up and page down keys.
 Made it so all of your changed settings are now remembered between sessions.
