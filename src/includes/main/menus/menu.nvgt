@@ -122,21 +122,44 @@ m.fade_music();
 void viewscores()
 {
     int focus = 0;
+    while(true)
+    {
+        setupmenu(true);
+        m.add_item("Classic", "classic");
+        m.add_item("Classic reverse", "classicreverse");
+        m.add_item("Shuffle", "shuffle");
+        m.add_item("Shuffle reverse", "shufflereverse");
+        m.add_item("Back", "back");
+        m.intro_text = simontype + " scores menu.";
+        int res = m.run(focus, true, true);
+        string id = m.get_item_id(res);
+        if(res == -1 || id == "back")
+            return;
+        focus = res - 1;
+        int mode = 0;
+        if(id == "classic") mode = 1;
+        if(id == "classicreverse") mode = 2;
+        if(id == "shuffle") mode = 3;
+        if(id == "shufflereverse") mode = 4;
+        viewscores_mode(mode);
+    }
+}
+void viewscores_mode(int mode)
+{
+    int focus = 0;
     sc.load();
     while(true)
     {
         setupmenu(true);
-        m.add_item(score_line("Easy", simontype, 1), "easy");
-        m.add_item(score_line("Medium", simontype, 2), "medium");
-        m.add_item(score_line("Hard", simontype, 3), "hard");
+        m.add_item(score_line("Easy", simontype, mode, 1), "easy");
+        m.add_item(score_line("Medium", simontype, mode, 2), "medium");
+        m.add_item(score_line("Hard", simontype, mode, 3), "hard");
         m.add_item("Back", "back");
-        m.intro_text = simontype + " scores.";
+        m.intro_text = simontype + " " + get_mode_name(mode) + " scores.";
         int res = m.run(focus, true, true);
         string id = m.get_item_id(res);
         if(res == -1 || id == "back")
-        {
             return;
-        }
         focus = res - 1;
     }
 }

@@ -1,11 +1,11 @@
-string best_key(string pack, int dif)
+string best_key(string pack, int mode, int dif)
 {
-return "best_" + pack + "_" + string(dif);
+return "best_" + pack + "_" + string(mode) + "_" + string(dif);
 }
-bool record_score(string pack, int dif, int score)
+bool record_score(string pack, int mode, int dif, int score)
 {
 sc.load();
-string key = best_key(pack, dif);
+string key = best_key(pack, mode, dif);
 bool had = sc.d.exists(key);
 int prev = had ? sc.read_int(key) : -1;
 if(score > prev)
@@ -18,9 +18,9 @@ return had;
 }
 return false;
 }
-string score_line(string label, string pack, int dif)
+string score_line(string label, string pack, int mode, int dif)
 {
-string key = best_key(pack, dif);
+string key = best_key(pack, mode, dif);
 if(!sc.d.exists(key))
 return label + ". No score recorded.";
 int best = sc.read_int(key);

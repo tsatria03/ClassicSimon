@@ -69,7 +69,7 @@ if(score < 0)
     score = 0;
 bool newbest = false;
 if(!autopilot)
-    newbest = record_score(simontype, difmod, score);
+    newbest = record_score(simontype, gamemode, difmod, score);
 string word = (score == 1 ? "sequence" : "sequences");
 string who = (autopilot ? "the computer failed" : "you failed");
 speak("Oops, " + who + " after memorizing " + string(score) + " " + word + "." + (newbest ? " New best score!" : "") + " Press enter to try again, or escape to go back to the main menu.");

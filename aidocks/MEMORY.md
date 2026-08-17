@@ -14,7 +14,8 @@ The `[[name]]` links in `CLAUDE.md` and across these memories resolve to `aidock
 
 - [Settings menu](project_settings_menu.md) — Play/Settings/Exit; settingsmenu() holds on/off toggles for "Play logo at startup" (logoplay) and "Spoken hints" (simspeech), with per-item focus tracking; both now persist across launches.
 - [Save data layout](project_save_data_layout.md) — AppData saves under tsatria03/ClassicSimon/saves/ use the .csg extension (NOT ToyMania's .tmg): settings.csg (st: menumusvolume/logoplay/simspeech) and scores.csg (sc); both files encrypted with dev-set per-file keys (never regenerate a key — it orphans existing saves); no startup load wiring (loads are lazy).
-- [Score tracking](project_score_tracking.md) — best single-game score per pack per difficulty, saved to scores.csg via record_score/score_line (scorefuncts.nvgt); recorded in game_over when !autopilot ("New best!" only when beating an existing record); View scores menu in each pack's menu.
+- [Game modes](project_game_modes.md) — four modes (gamemode 1-4) as a 2x2 of carryover×direction: Classic, Classic Reverse, Shuffle, Shuffle Reverse; modemenu() before diffmenu(); switches in next_round() (regenerate for 3/4) and game_loop() (backward for 2/4).
+- [Score tracking](project_score_tracking.md) — best single-game score per pack per MODE per difficulty, saved to scores.csg via record_score/score_line (scorefuncts.nvgt); recorded in game_over when !autopilot ("New best score!" only when beating an existing record); View scores is a mode-picker drill-down (viewscores → viewscores_mode).
 
 - [custom_menu run() index bases](project_custom_menu_run_indexing.md) — run() RETURNS 1-based (current_item+1) and get_item_id expects that, but run()'s start_position arg is 0-based; subtract 1 when feeding a returned index back as start_position (bit the settings menu focus).
 
