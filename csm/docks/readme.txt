@@ -19,19 +19,15 @@ Game modes.
 When you start a game, you first choose one of four game modes. They change how the sequence is built and how you repeat it. Here is what each one does.
 
 Classic.
-
 This is the traditional Simon. Each round the game adds one new tone to the end of the sequence, and the part you already learned stays the same, so you only have to remember the new tone on the end. You repeat the whole sequence in the same order it played. For example, if round two plays down then up, you press down then up.
 
 Classic reverse.
-
 The sequence grows exactly like classic, one new tone on the end each round, but you repeat it backwards, from the last tone to the first. For example, if round two plays down then up, you press up then down. In round one there is only a single tone, so forwards and backwards are the same.
 
 Shuffle.
-
 Instead of building on a sequence you already know, each round throws out the old one and plays a brand new random sequence, one tone longer than the last. Nothing carries over, so you memorize a fresh sequence every round. You still repeat it in the order it played. For example, round two might be left then right, while round three could be a completely different up, down, left.
 
 Shuffle reverse.
-
 This is the toughest mode. Each round is a brand new random sequence like shuffle, and you repeat it backwards like reverse. For example, if a round plays left, down, up, you press up, down, left.
 
 Difficulty and autopilot.
@@ -56,22 +52,32 @@ Making your own Simon is easy. Inside the game's sounds folder, then the simons 
 
 Tuning a pack with info.cmf.
 
-Any pack can include an optional text file called info.cmf that adjusts its timing. It is completely optional. If you leave the file out, or leave out any single line, the game uses its normal default for that setting, so you only need to include the lines you want to change. Write one setting per line in the form name=value. Blank lines are ignored, and a line that starts with a number sign or a semicolon is treated as a comment. All times are in milliseconds, and a bigger number means slower and more forgiving. The available settings are listed below.
+Any pack can include an optional text file called info.cmf that adjusts its timing. It is completely optional. If you leave the file out, or leave out any single line, the game uses its normal default for that setting, so you only need to include the lines you want to change. Write one setting per line in the form name=value. Blank lines are ignored, and a line that starts with a number sign or a semicolon is treated as a comment. All times are in milliseconds, and a bigger number means slower and more forgiving.
 
-playback_delay. The gap between tones while the game plays the sequence. It takes one value per difficulty, in the order easy, medium, hard, insane, separated by colons. For example, playback_delay=500:400:300:200.
+The available settings are listed below.
 
-reaction_delay. How long you have to press each tone before you time out. It also takes one value per difficulty separated by colons, for example reaction_delay=2000:1500:1000:500.
+playback_delay.
+The gap between tones while the game plays the sequence. It takes one value per difficulty, in the order easy, medium, hard, insane, separated by colons. For example, playback_delay=500:400:300:200.
 
-ramp_step. How much the playback gap and the reaction window shrink each round. This value is multiplied by the difficulty, so higher difficulties speed up faster.
+reaction_delay.
+How long you have to press each tone before you time out. It also takes one value per difficulty separated by colons, for example reaction_delay=2000:1500:1000:500.
 
-playback_floor. The fastest the playback gap can ever get, no matter how long the game goes.
+ramp_step.
+How much the playback gap and the reaction window shrink each round. This value is multiplied by the difficulty, so higher difficulties speed up faster.
 
-reaction_floor. The shortest the reaction window can ever get.
+playback_floor.
+The fastest the playback gap can ever get, no matter how long the game goes.
 
-tone_padding. A small fixed gap added after every tone, so that two of the same tone in a row stay distinct.
+reaction_floor.
+The shortest the reaction window can ever get.
 
-autopilot_risk. How reckless autopilot is. It is multiplied by the difficulty to set the base chance that autopilot slips up, so a higher number makes it fail sooner.
+tone_padding.
+A small fixed gap added after every tone, so that two of the same tone in a row stay distinct.
 
-autopilot_factor. Also shapes autopilot's mistakes. The current sequence length is divided by this number and added to the fail chance, so a smaller number makes long sequences riskier for autopilot.
+autopilot_risk.
+How reckless autopilot is. It is multiplied by the difficulty to set the base chance that autopilot slips up, so a higher number makes it fail sooner.
 
-Good luck, and have fun!
+autopilot_factor.
+Also shapes autopilot's mistakes. The current sequence length is divided by this number and added to the fail chance, so a smaller number makes long sequences riskier for autopilot.
+
+We hope you enjoy this fun little time waster. It was quite the blast to make.
