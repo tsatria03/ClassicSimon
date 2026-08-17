@@ -1,4 +1,5 @@
 New in 1.0.
+Added a fourth difficulty, insane. It starts faster than hard and speeds up more sharply, for a real challenge.
 Fixed the escape key so that leaving a game, the fail screen, or learn tones now takes you back to that Simon's menu, instead of all the way back out to the main menu.
 Made it so best scores are now tracked separately for every game mode as well as every difficulty. Choose View scores from a Simon's menu, pick a game mode, and you will hear your best for easy, medium, and hard in that mode. Your bests are remembered between sessions, and autopilot games still do not count.
 Added three new game modes alongside the original, which is now called classic. Classic reverse plays like classic, but you repeat the sequence backwards. Shuffle gives you a brand new random sequence every round instead of adding to the same one. Shuffle reverse combines both, a fresh sequence each round that you repeat backwards. You choose a mode when you start a game, before picking a difficulty.

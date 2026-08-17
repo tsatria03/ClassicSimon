@@ -36,7 +36,7 @@ This is the toughest mode. Each round is a brand new random sequence like shuffl
 
 Difficulty and autopilot.
 
-After you pick a game mode, you set the difficulty to easy, medium, or hard. Difficulty controls how fast the tones play and how quickly the game speeds up as you go, and as you fail. You can also turn on autopilot, which lets the game play itself for a while and fail at random. It is handy for a demo, or just to sit back and listen.
+After you pick a game mode, you set the difficulty to easy, medium, hard, or insane. Difficulty controls how fast the tones play and how quickly the game speeds up as you go, and as you fail. Insane is the fastest, it starts quicker than hard and tightens even more sharply, for players who want a real challenge. You can also turn on autopilot, which lets the game play itself for a while and fail at random. It is handy for a demo, or just to sit back and listen.
 
 How to play.
 

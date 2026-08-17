@@ -11,6 +11,7 @@ string get_difficulty_name(int dif)
     if(dif == 1) return "easy";
     if(dif == 2) return "medium";
     if(dif == 3) return "hard";
+    if(dif == 4) return "insane";
     return "unknown";
 }
 string get_mode_name(int mode)
@@ -84,6 +85,11 @@ void apply_difficulty()
     {
         play_delay = 300;
         input_timeout = 1000;
+    }
+    else if(difmod == 4)
+    {
+        play_delay = 200;
+        input_timeout = 500;
     }
 }
 void play_sequence()

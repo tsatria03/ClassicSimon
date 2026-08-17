@@ -155,6 +155,7 @@ void viewscores_mode(int mode)
         m.add_item(score_line("Easy", simontype, mode, 1), "easy");
         m.add_item(score_line("Medium", simontype, mode, 2), "medium");
         m.add_item(score_line("Hard", simontype, mode, 3), "hard");
+        m.add_item(score_line("Insane", simontype, mode, 4), "insane");
         m.add_item("Back", "back");
         m.intro_text = simontype + " " + get_mode_name(mode) + " scores.";
         int res = m.run(focus, true, true);
@@ -196,6 +197,7 @@ void diffmenu()
         m.add_item("easy", "dif1");
         m.add_item("medium", "dif2");
         m.add_item("hard", "dif3");
+        m.add_item("insane", "dif4");
         m.add_item("back", "back");
         m.intro_text = "Choose a game difficulty.";
         int res = m.run();
@@ -207,6 +209,7 @@ void diffmenu()
         if(difid == "dif1") difmod = 1;
         if(difid == "dif2") difmod = 2;
         if(difid == "dif3") difmod = 3;
+        if(difid == "dif4") difmod = 4;
         setupmenu(true);
         m.add_item("Yes", "auto");
         m.add_item("No", "manual");
